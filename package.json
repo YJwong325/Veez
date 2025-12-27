@@ -1,18 +1,12 @@
 {
-  "name": "Veez",
-  "private": true,
+  "name": "veez",
   "version": "1.0.0",
-  "description": "Veez: A web app of a collection of my favourite media",
+  "description": "A Web Application to store my favourite anime, manga, webtoons, and manhwa",
+  "main": "server.js",
   "scripts": {
-    "format": "prettier --write \"src/**/*.{html,css,js}\"",
-    "lint": "eslint src/**/*.js",
-    "start": "parcel src/index.html",
-    "clean": "rimraf .parcel-cache dist"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --watch server.js"
   },
-  "devDependencies": {
-    "eslint": "8.51.0",
-    "parcel": "^2.10.0",
-    "prettier": "3.0.3",
-    "rimraf": "5.0.5"
-  }
+  "author": "Yuan Jie Wong",
+  "license": "ISC"
 }
