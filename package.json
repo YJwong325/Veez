@@ -8,5 +8,9 @@
     "start": "node --watch server.js"
   },
   "author": "Yuan Jie Wong",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1",
+    "path": "^0.12.7"
+  }
 }
