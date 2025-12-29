@@ -12,6 +12,18 @@ app.get('/', (req, res) => {
     res.render('home')
 })
 
+app.get('/manga', (req, res) => {
+    res.render('manga')
+})
+
+app.get('/anime', (req, res) => {
+    res.render('anime')
+})
+
+app.get('/manhwa', (req, res) => {
+    res.render('manhwa')
+})
+
 app.listen(port, () => {
     console.log(`Listening to port ${port}`)
 })
