@@ -1,12 +1,20 @@
-<html>
+<!DOCTYPE html>
+
+<html data-theme="dracula">
     <head>
         <title>Veez</title>
+
+        <link rel="stylesheet" href="/css/main.css" />
     </head>
 
     <body>
-        <h1>Welcome to Manga page</h1>
-        <p>Browse a collection of my favorite media.</p>
+        <div class="prose container mx-auto my-10">
+            <h1>Welcome to Manga page</h1>
+            <p>Browse a collection of my favorite media.</p>
 
-        <p>First manga name: <%= mangas.title.english %></p>
+            <p>First manga name: <%= mangas.title.english %></p>
+            <p>Manga image:</p>
+            <img src="<%= mangas.coverImage.large %>">
+        </div>
     </body>
 </html>
