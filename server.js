@@ -59,6 +59,10 @@ app.get('/manga', (req, res) => {
         })
 })
 
+app.get('/media', (req, res) => {
+    res.render('media')
+})
+
 app.get('/anime', (req, res) => {
     res.render('anime')
 })
