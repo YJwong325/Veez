@@ -1,0 +1,14 @@
+[ 
+    {
+        "id": 1,
+        "cat_name": "Anime"
+    },
+    {
+        "id": 2,
+        "cat_name": "Manga"
+    },
+    {
+        "id": 3,
+        "cat_name": "Manhwa"
+    }
+]
