@@ -1,0 +1,76 @@
+const catData = require('../data/category.json')
+const mediaData = require('../data/media.json')
+
+let media = []
+
+function initialize() {
+    let aniData = mediaData.filter((elem) => elem.cat_id === 1)
+    let mangaData = mediaData.filter((elem) => elem.cat_id !== 1)
+
+    // GraphQL query for fetching ANIME typed media
+    let query = `
+        query ($ids: [Int]) {
+            Page (perPage: 10) {
+                media (id_in: $ids, type: ANIME) {
+                    src_id: id
+                    title {
+                        english
+                    }
+                    coverImage {
+                        large
+                    }
+                    siteUrl
+                }
+            }
+        }
+    `
+
+    let variables = {
+        ids: []
+    }
+
+    aniData.forEach((anime) => {
+        variables.ids.push(anime.src_id)
+    })
+
+    let url = 'https://graphql.anilist.co'
+    let options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+            query: query,
+            variables: variables
+        })
+    }
+
+    // fetch ANIME
+    fetch(url, options)
+        .then((response) => {
+            return response.json().then((json) => {
+                return response.ok ? json : Promise.reject(json)
+            })
+        })
+        .then((data) => {
+            // add id and cat_id fields to the fetched objects before appending to media array
+            // id acts as a primary key because src_id may not be unique
+            // the added id attribute can be used as primary key when we eventually add a DB
+            data.data.Page.media.forEach((obj) => {
+                // all fetched objects in this query are type ANIME 
+                obj.cat_id = 1
+                
+                // filter by category because src_id is not unique
+                // objects may share the same src_id but belong in different categories
+                let srcObj = aniData.find((elem) => elem.cat_id === 1 && elem.src_id === obj.src_id)
+                obj.id = srcObj.id
+            })
+            media.concat(data.data.Page.media)
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+}
+
+module.exports = {initialize}
