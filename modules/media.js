@@ -71,6 +71,56 @@ function initialize() {
         .catch((err) => {
             console.log(err)
         })
+
+    query = `
+        query ($ids: [Int]) {
+            Page (perPage: 10) {
+                media (id_in: $ids, type: MANGA) {
+                    src_id: id
+                    title {
+                        english
+                    }
+                    coverImage {
+                        large
+                    }
+                    siteUrl
+                }
+            }
+        }
+    `
+
+    variables.ids = []
+
+    mangaData.forEach((manga) => {
+        variables.ids.push(manga.src_id)
+    })
+
+    // update request body for MANGA GraphQL query
+    options.body = JSON.stringify({
+        query: query,
+        variables: variables
+    })
+
+    // fetch MANGA
+    fetch(url, options)
+        .then((response) => {
+            return response.json().then((json) => {
+                return response.ok ? json : Promise.reject(json)
+            })
+        })
+        .then((data) => {
+            data.data.Page.media.forEach((obj) => {
+                let srcObj = mangaData.find((elem) => {
+                    return (elem.cat_id === 2 || elem.cat_id === 3) && elem.src_id === obj.src_id
+                })
+                obj.cat_id = srcObj.cat_id
+                obj.id = srcObj.id
+            })
+            media.concat(data.data.Page.media)
+        })
+        .catch((err) => {
+            console.log(err)
+        })
 }
 
 module.exports = {initialize}
