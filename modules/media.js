@@ -61,9 +61,9 @@ function initialize() {
                 // all fetched objects in this query are type ANIME 
                 obj.cat_id = 1
                 
-                // filter by category because src_id is not unique
-                // objects may share the same src_id but belong in different categories
-                let srcObj = aniData.find((elem) => elem.cat_id === 1 && elem.src_id === obj.src_id)
+                // aniData is already filtered by category to make sure there are no
+                // unexpected behavior with 2 objects sharing the same src_id in different categories
+                let srcObj = aniData.find((elem) => elem.src_id === obj.src_id)
                 obj.id = srcObj.id
             })
             media.concat(data.data.Page.media)
@@ -110,9 +110,8 @@ function initialize() {
         })
         .then((data) => {
             data.data.Page.media.forEach((obj) => {
-                let srcObj = mangaData.find((elem) => {
-                    return (elem.cat_id === 2 || elem.cat_id === 3) && elem.src_id === obj.src_id
-                })
+                let srcObj = mangaData.find((elem) => elem.src_id === obj.src_id)
+
                 obj.cat_id = srcObj.cat_id
                 obj.id = srcObj.id
             })
