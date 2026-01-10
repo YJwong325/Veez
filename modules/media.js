@@ -122,4 +122,18 @@ function initialize() {
         })
 }
 
-module.exports = {initialize}
+function getAllMedia() {
+
+}
+
+function getMediaById(id) {
+
+}
+
+// category names will be exact because manga and manhwa both start with "man"
+// will not use wildcards for querying 
+function getMediaByCategory(category) {
+
+}
+
+module.exports = {initialize, getAllMedia, getMediaById, getMediaByCategory}
