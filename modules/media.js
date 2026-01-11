@@ -65,6 +65,9 @@ function initialize() {
                 // unexpected behavior with 2 objects sharing the same src_id in different categories
                 let srcObj = aniData.find((elem) => elem.src_id === obj.src_id)
                 obj.id = srcObj.id
+
+                let category = catData.find((elem) => elem.id === 1)
+                obj.category = category.cat_name
             })
             media.concat(data.data.Page.media)
         })
@@ -114,6 +117,9 @@ function initialize() {
 
                 obj.cat_id = srcObj.cat_id
                 obj.id = srcObj.id
+                
+                let category = catData.find((elem) => elem.id === srcObj.cat_id)
+                obj.category = category.cat_name
             })
             media.concat(data.data.Page.media)
         })
@@ -127,13 +133,13 @@ function getAllMedia() {
 }
 
 function getMediaById(id) {
-
+    return media.find((elem) => elem.id === id)
 }
 
 // category names will be exact because manga and manhwa both start with "man"
 // will not use wildcards for querying 
 function getMediaByCategory(category) {
-
+    return media.filter((elem) => category.toLowerCase() === elem.category.toLowerCase())
 }
 
 module.exports = {initialize, getAllMedia, getMediaById, getMediaByCategory}
