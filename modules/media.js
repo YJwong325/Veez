@@ -48,7 +48,7 @@ function initialize() {
         }
     
         // fetch ANIME
-        fetch(url, options)
+        const aniFetch = fetch(url, options)
             .then((response) => {
                 return response.json().then((json) => {
                     return response.ok ? json : Promise.reject(json)
@@ -71,9 +71,6 @@ function initialize() {
                     obj.category = category.cat_name
                 })
                 media.push(...data.data.Page.media)
-            })
-            .catch((err) => {
-                reject(err)
             })
     
         query = `
@@ -106,7 +103,7 @@ function initialize() {
         })
     
         // fetch MANGA
-        fetch(url, options)
+        const mangaFetch = fetch(url, options)
             .then((response) => {
                 return response.json().then((json) => {
                     return response.ok ? json : Promise.reject(json)
@@ -124,11 +121,10 @@ function initialize() {
                 })
                 media.push(...data.data.Page.media)
             })
-            .catch((err) => {
-                reject(err)
-            })
 
-        resolve()
+        Promise.all([aniFetch, mangaFetch])
+            .then(() => resolve())
+            .catch(err => reject(err))
     })
 }
 
