@@ -5,6 +5,8 @@ const port = process.env.PORT || 8080
 
 const app = express()
 
+const mediaData = require('./modules/media.js')
+
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, '/views'))
 
@@ -12,6 +14,11 @@ app.use(express.json())
 app.use(express.static(path.join(__dirname, '/public')))
 
 app.get('/', (req, res) => {
+    mediaData.initialize()
+        .then(() => {
+            console.log(mediaData.getAllMedia())
+        })
+        
     res.render('home')
 })
 
