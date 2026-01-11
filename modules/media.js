@@ -136,14 +136,14 @@ function getAllMedia() {
     return media
 }
 
-function getMediaById(id) {
-    return media.find((elem) => elem.id === id)
+function getMediaById(mediaId) {
+    return media.find(({id}) => id === mediaId)
 }
 
 // category names will be exact because manga and manhwa both start with "man"
 // will not use wildcards for querying 
-function getMediaByCategory(category) {
-    return media.filter((elem) => category.toLowerCase() === elem.category.toLowerCase())
+function getMediaByCategory(mediaCat) {
+    return media.filter(({category}) => category.toLowerCase() === mediaCat.toLowerCase())
 }
 
 module.exports = {initialize, getAllMedia, getMediaById, getMediaByCategory}
