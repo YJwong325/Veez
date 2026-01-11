@@ -123,7 +123,7 @@ function initialize() {
 }
 
 function getAllMedia() {
-
+    return media
 }
 
 function getMediaById(id) {
