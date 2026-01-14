@@ -23,47 +23,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/manga', (req, res) => {
-    let query = `
-        query ($id: Int) {
-            Media (id: $id, type: MANGA) {
-                id
-                title {
-                    english
-                }
-                coverImage {
-                    large
-                }
-            }
-        }
-    `
-    let variables = {
-        id: 63327
-    }
-
-    let url = 'https://graphql.anilist.co'
-    fetch(url, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-            query: query,
-            variables: variables
-        })
-    })
-        .then((response) => {
-            return response.json().then((json) => {
-                return response.ok ? json : Promise.reject(json)
-            })
-        })
-        .then((data) => {
-            console.log(JSON.stringify(data))
-            res.render('manga', { mangas: data.data.Media })
-        })
-        .catch((err) => {
-            res.status(500).render('500', { errMessage: err })
-        })
+    res.render('manga', { manga: mediaData.getMediaById(20) });
 })
 
 app.get('/media', (req, res) => {
