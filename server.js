@@ -16,14 +16,22 @@ app.use(express.static(path.join(__dirname, '/public')))
 app.get('/', (req, res) => {
     mediaData.initialize()
         .then(() => {
-            console.log(mediaData.getAllMedia())
+            mediaData.getAllMedia()
+                .then((data) => console.log(data));
         })
+        .catch((err) => console.log(err));
         
     res.render('home')
 })
 
 app.get('/manga', (req, res) => {
-    res.render('manga', { manga: mediaData.getMediaById(20) });
+    mediaData.getMediaById(20)
+        .then((data) => {
+            res.render('manga', { manga: data });
+        })
+        .catch((err) => {
+            res.status(500).json({ "message": "Internal server error" })
+        })
 })
 
 app.get('/media', (req, res) => {

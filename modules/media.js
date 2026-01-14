@@ -78,17 +78,23 @@ function initialize() {
 }
 
 function getAllMedia() {
-    return media;
+    return new Promise((resolve, reject) => {
+        resolve(media);
+    });
 }
 
 function getMediaById(mediaId) {
-    return media.find(({id}) => id === mediaId);
+    return new Promise((resolve, reject) => {
+        resolve(media.find(({id}) => id === mediaId));
+    });
 }
 
 // category names will be exact because manga and manhwa both start with "man"
 // will not use wildcards for querying 
 function getMediaByCategory(mediaCat) {
-    return media.filter(({category}) => category.toLowerCase() === mediaCat.toLowerCase());
+    return new Promise((resolve, reject) => {
+        resolve(media.filter(({category}) => category.toLowerCase() === mediaCat.toLowerCase()));
+    });
 }
 
 module.exports = {initialize, getAllMedia, getMediaById, getMediaByCategory};
