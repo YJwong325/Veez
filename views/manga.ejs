@@ -8,7 +8,7 @@
     </head>
 
     <body>
-        <div class="container mx-auto my-10">
+        <div class="container mx-auto my-10 px-20">
             <div class="hero bg-base-200 min-h-64 rounded-lg">
                 <div class="hero-content text-center w-full">
                     <div class="max-w-xl">
@@ -21,14 +21,27 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="prose container mx-auto my-10">
-            <h1>Welcome to Manga page</h1>
-            <p>Browse a collection of my favorite media.</p>
 
-            <p>First manga name: <%= manga.title.english %></p>
-            <p>Manga image:</p>
-            <img src="<%= manga.coverImage.large %>">
+            <br><br>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                <% mangas.forEach((manga) => { %>
+                    <div class="card bg-base-100 shadow-xl">
+                        <figure class="aspect-[3/4] overflow-hidden">
+                            <img
+                                class="w-full h-full object-cover"
+                                src="<%= manga.coverImage.large %>"
+                                alt="manga cover image" />
+                        </figure>
+                        <div class="card-body">
+                            <h2 class="card-title"><%= manga.title.english %></h2>
+                            <div class="card-actions justify-start">
+                                <button class="btn btn-primary">Learn more</button>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
         </div>
     </body>
 </html>

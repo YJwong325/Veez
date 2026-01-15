@@ -20,9 +20,9 @@ mediaData.initialize()
         })
         
         app.get('/manga', (req, res) => {
-            mediaData.getMediaById(20)
+            mediaData.getMediaByCategory("manga")
                 .then((data) => {
-                    res.render('manga', { manga: data });
+                    res.render('manga', { mangas: data });
                 })
                 .catch((err) => {
                     res.status(500).json({ "message": "Internal server error" })
