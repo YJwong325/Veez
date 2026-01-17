@@ -20,13 +20,29 @@ mediaData.initialize()
         })
         
         app.get('/media', (req, res) => {
-            mediaData.getAllMedia()
-                .then((data) => {
-                    res.render('media', { media: data });
-                })
-                .catch((err) => {
-                    res.status(500).json({ "message": "Internal server error" })
-                })
+            if (req.query.category) {
+                mediaData.getMediaByCategory(req.query.category)
+                    .then((data) => {
+                        if (data.length > 0) {
+                            res.render('media', { media: data });
+                        }
+                        else {
+                            res.status(404).render('404', { errMessage: `The category, "${req.query.category}", does not exist.` });
+                        }
+                    })
+                    .catch((err) => {
+                        res.status(500).render('500', { errMessage: err });
+                    });
+            }
+            else {
+                mediaData.getAllMedia()
+                    .then((data) => {
+                        res.render('media', { media: data });
+                    })
+                    .catch((err) => {
+                        res.status(500).json({ "message": "Internal server error" });
+                    });
+            }
         })
 
         app.use((req, res, next) => {
