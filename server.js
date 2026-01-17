@@ -19,28 +19,16 @@ mediaData.initialize()
             res.render('home')
         })
         
-        app.get('/manga', (req, res) => {
-            mediaData.getMediaByCategory("manga")
+        app.get('/media', (req, res) => {
+            mediaData.getAllMedia()
                 .then((data) => {
-                    res.render('manga', { mangas: data });
+                    res.render('media', { media: data });
                 })
                 .catch((err) => {
                     res.status(500).json({ "message": "Internal server error" })
                 })
         })
-        
-        app.get('/media', (req, res) => {
-            res.render('media')
-        })
-        
-        app.get('/anime', (req, res) => {
-            res.render('anime')
-        })
-        
-        app.get('/manhwa', (req, res) => {
-            res.render('manhwa')
-        })
-        
+
         app.use((req, res, next) => {
             res.status(404).render('404')
         })
