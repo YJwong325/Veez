@@ -46,7 +46,7 @@ mediaData.initialize()
         })
 
         app.use((req, res, next) => {
-            res.status(404).render('404')
+            res.status(404).render('404', { errMessage: "Page requested does not exist." })
         })
         
         app.listen(port, () => {
