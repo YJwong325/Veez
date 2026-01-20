@@ -6,7 +6,7 @@ let media = [];
 function fetchMedia(type, filteredMedia) {
     let query = `
         query ($ids: [Int]) {
-            Page (perPage: 10) {
+            Page (perPage: 50) {
                 media (id_in: $ids, type: ${type}) {
                     src_id: id
                     title {
