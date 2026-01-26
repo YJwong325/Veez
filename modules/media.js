@@ -11,6 +11,7 @@ function fetchMedia(type, filteredMedia) {
                     src_id: id
                     title {
                         english
+                        romaji
                     }
                     coverImage {
                         large

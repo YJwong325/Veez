@@ -36,7 +36,7 @@
                                 alt="media cover image" />
                         </figure>
                         <div class="card-body">
-                            <h2 class="card-title"><%= mediaObj.title.english %></h2>
+                            <h2 class="card-title"><%= mediaObj.title.english ? mediaObj.title.english : mediaObj.title.romaji %></h2>
                             <div class="card-actions justify-start">
                                 <button class="btn btn-primary">Learn more</button>
                             </div>
