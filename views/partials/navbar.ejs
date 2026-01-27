@@ -1,28 +1,47 @@
-<!DOCTYPE html>
-
-<html lang="en">
-<head>
-</head>
-<body>
-    <div class="navbar bg-base-100">
-        <div class="flex-1">
-            <a href="/" class="btn btn-ghost text-xl">Veez</a>
-        </div>
-        <div class="flex-none">
-            <ul class="menu menu-horizontal px-1">
-                <li><a>About</a></li>
-                <li>
-                    <details>
-                        <summary>Categories</summary>
-                        <ul class="bg-base-100 rounded-t-none p-2">
-                            <li><a href="/media?category=anime">Anime</a></li>
-                            <li><a href="/media?category=manga">Manga</a></li>
-                            <li><a href="/media?category=manhwa">Manhwa</a></li>
-                        </ul>
-                    </details>
-                </li>
-            </ul>
-        </div>
+<div class="navbar bg-base-100">
+    <div class="flex-1">
+        <a href="/" class="btn btn-ghost text-xl">Veez</a>
     </div>
-</body>
-</html>
+
+    <div class="hidden sm:flex">
+        <ul class="menu menu-horizontal px-1">
+            <li><a href="/about">About</a></li>
+            <li>
+                <details>
+                    <summary>Categories</summary>
+                    <ul class="bg-base-100 rounded-t-none p-2">
+                        <li><a href="/media?category=anime">Anime</a></li>
+                        <li><a href="/media?category=manga">Manga</a></li>
+                        <li><a href="/media?category=manhwa">Manhwa</a></li>
+                    </ul>
+                </details>
+            </li>
+        </ul>
+    </div>
+
+    <div class="dropdown dropdown-end">
+        <label tabindex="0" class="btn btn-ghost sm:hidden">
+            <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                class="w-6 h-6" 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+        </label>
+        <ul tabindex="0" class="menu menu-sm dropdown-content right-0 mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+            <li><a href="/about">About</a></li>
+            <li>
+                <details>
+                    <summary>Categories</summary>
+                    <ul class="p-2 bg-base-100">
+                        <li><a href="/media?category=anime">Anime</a></li>
+                        <li><a href="/media?category=manga">Manga</a></li>
+                        <li><a href="/media?category=manhwa">Manhwa</a></li>
+                    </ul>
+                </details>
+            </li>
+        </ul>
+    </div>
+</div>
