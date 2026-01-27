@@ -45,6 +45,10 @@ mediaData.initialize()
             }
         })
 
+        app.get('/about', (req, res) => {
+            res.render('about')
+        })
+
         app.use((req, res, next) => {
             res.status(404).render('404', { errMessage: "Page requested does not exist." })
         })
