@@ -86,7 +86,7 @@ function getAllMedia() {
 
 function getMediaById(mediaId) {
     return new Promise((resolve, reject) => {
-        resolve(media.find(({id}) => id === mediaId));
+        resolve(media.find(({id}) => id === +mediaId));
     });
 }
 
