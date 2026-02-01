@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html data-theme="autumn">
+    <head>
+        <title>Veez</title>
+
+        <link rel="stylesheet" href="/css/main.css" />
+    </head>
+
+    <body>
+        <%- include('partials/navbar.ejs') %>
+
+        <div class="container mx-auto mt-5 mb-10 px-20">
+            <div class="hero bg-base-200 min-h-64 rounded-lg">
+                <div class="hero-content text-center w-full">
+                    <div class="max-w-xl">
+                        <h1 class="text-6xl text-base-content font-bold"><%= mediaObj.title.english ? mediaObj.title.english : mediaObj.title.romaji %></h1>
+                        <p class="pt-6 text-base-content">This is a page for this specific media item.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
