@@ -6,12 +6,12 @@ A web app to showcase my favourite animated works and media.
 - HTML
 - Tailwind CSS + DaisyUI
 - EJS (templating engine)
-- Fetch API + GraphQL
 
 ### Backend
 - Node.js
 - Express.js
 - JavaScript
+- Fetch API + GraphQL
 
 ## Disclaimer
 - This project uses the [AniList API](https://docs.anilist.co/) to fetch anime and manga data via GraphQL queries.
