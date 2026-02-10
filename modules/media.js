@@ -15,6 +15,7 @@ function fetchMedia(type, filteredMedia) {
                     }
                     coverImage {
                         large
+                        extraLarge
                     }
                     siteUrl
                 }
