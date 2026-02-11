@@ -11,7 +11,7 @@
     <body>
         <%- include('partials/navbar.ejs') %>
 
-        <div class="container mx-auto mt-5 mb-10 px-20">
+        <div class="container mx-auto mt-5 mb-10 px-5 md:px-20">
             <div class="hero bg-base-200 min-h-64 rounded-lg">
                 <div class="hero-content text-center w-full">
                     <div class="max-w-xl">
@@ -39,7 +39,7 @@
                         <div class="card-body">
                             <h2 class="card-title"><%= mediaObj.title.english ? mediaObj.title.english : mediaObj.title.romaji %></h2>
                             <div class="card-actions justify-start">
-                                <button class="btn btn-primary">Learn more</button>
+                                <a class="btn btn-primary" href="/media/<%= mediaObj.id %>">Learn more</a>
                             </div>
                         </div>
                     </div>
