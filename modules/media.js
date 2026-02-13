@@ -18,6 +18,7 @@ function fetchMedia(type, filteredMedia) {
                         extraLarge
                     }
                     siteUrl
+                    description
                 }
             }
         }
