@@ -1727,6 +1727,12 @@
       --btn-fg: var(--color-primary-content);
     }
   }
+  .btn-secondary {
+    @layer daisyui.l1.l2.l3 {
+      --btn-color: var(--color-secondary);
+      --btn-fg: var(--color-secondary-content);
+    }
+  }
   .sm\:flex {
     @media (width >= 40rem) {
       display: flex;
