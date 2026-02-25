@@ -1444,6 +1444,9 @@
       font-weight: 600;
     }
   }
+  .block {
+    display: block;
+  }
   .flex {
     display: flex;
   }
@@ -1562,6 +1565,11 @@
   .gap-10 {
     gap: calc(var(--spacing) * 10);
   }
+  .truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
   .overflow-hidden {
     overflow: hidden;
   }
@@ -1654,17 +1662,17 @@
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
   }
+  .text-nowrap {
+    text-wrap: nowrap;
+  }
   .text-wrap {
     text-wrap: wrap;
   }
+  .text-ellipsis {
+    text-overflow: ellipsis;
+  }
   .text-base-content {
     color: var(--color-base-content);
-  }
-  .text-primary-content {
-    color: var(--color-primary-content);
-  }
-  .text-secondary-content {
-    color: var(--color-secondary-content);
   }
   .underline {
     text-decoration-line: underline;
@@ -1717,20 +1725,10 @@
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
-  .ease-in-out {
-    --tw-ease: var(--ease-in-out);
-    transition-timing-function: var(--ease-in-out);
-  }
   .btn-primary {
     @layer daisyui.l1.l2.l3 {
       --btn-color: var(--color-primary);
       --btn-fg: var(--color-primary-content);
-    }
-  }
-  .btn-secondary {
-    @layer daisyui.l1.l2.l3 {
-      --btn-color: var(--color-secondary);
-      --btn-fg: var(--color-secondary-content);
     }
   }
   .sm\:flex {
@@ -3241,10 +3239,6 @@
   syntax: "*";
   inherits: false;
 }
-@property --tw-ease {
-  syntax: "*";
-  inherits: false;
-}
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
@@ -3278,7 +3272,6 @@
       --tw-drop-shadow-color: initial;
       --tw-drop-shadow-alpha: 100%;
       --tw-drop-shadow-size: initial;
-      --tw-ease: initial;
     }
   }
 }

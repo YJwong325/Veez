@@ -27,22 +27,21 @@
 
             <br><br>
 
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
                 <% media.forEach((mediaObj) => { %>
-                    <div class="card bg-base-100 shadow-xl">
-                        <figure class="aspect-[3/4] overflow-hidden">
-                            <img
-                                class="w-full h-full object-cover"
-                                src="<%= mediaObj.coverImage.large %>"
-                                alt="media cover image" />
-                        </figure>
-                        <div class="card-body">
-                            <h2 class="card-title"><%= mediaObj.title.english ? mediaObj.title.english : mediaObj.title.romaji %></h2>
-                            <div class="card-actions justify-start">
-                                <a class="btn btn-primary" href="/media/<%= mediaObj.id %>">Learn more</a>
+                    <a href="/media/<%= mediaObj.id %>">
+                        <div class="card bg-base-100 shadow-xl">
+                            <figure class="aspect-[3/4] overflow-hidden">
+                                <img
+                                    class="w-full h-full object-cover"
+                                    src="<%= mediaObj.coverImage.large %>"
+                                    alt="media cover image" />
+                            </figure>
+                            <div class="card-body">
+                                <h2 class="card-title block truncate"><%= mediaObj.title.english ? mediaObj.title.english : mediaObj.title.romaji %></h2>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 <% }) %>
             </div>
         </div>
