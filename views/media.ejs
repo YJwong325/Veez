@@ -27,6 +27,25 @@
 
             <br><br>
 
+            <div class="bg-base-200 rounded-lg relative flex w-fit p-1">
+                <input id="table" type="radio" name="view" class="peer/table hidden">
+                <label for="table" class="relative z-10 w-24 h-8 flex items-center justify-center text-base-content font-medium text-lg">
+                    Table
+                </label>
+
+                <input id="cards" type="radio" name="view" class="peer/cards hidden">
+                <label for="cards" class="relative z-10 w-24 h-8 flex items-center justify-center text-base-content font-medium text-lg">
+                    Card
+                </label>
+
+                <div class="absolute top-1 left-1 w-24 h-8 bg-base-100 rounded-md shadow-sm transition-transform duration-300 ease-in-out
+                    peer-checked/table:translate-x-0
+                    peer-checked/cards:translate-x-full">
+                </div>
+            </div>
+
+            <br><br>
+
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
                 <% media.forEach((mediaObj) => { %>
                     <a href="/media/<%= mediaObj.id %>">
