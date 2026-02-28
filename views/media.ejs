@@ -30,7 +30,7 @@
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
                 <% media.forEach((mediaObj) => { %>
                     <a href="/media/<%= mediaObj.id %>">
-                        <div class="card bg-base-100 shadow-xl">
+                        <div class="card bg-base-100 shadow-md transition-transform duration-75 hover:shadow-lg hover:scale-101 hover:bg-primary hover:text-primary-content">
                             <figure class="aspect-[3/4] overflow-hidden">
                                 <img
                                     class="w-full h-full object-cover"
@@ -38,7 +38,7 @@
                                     alt="media cover image" />
                             </figure>
                             <div class="card-body">
-                                <h2 class="card-title block truncate"><%= mediaObj.title.english ? mediaObj.title.english : mediaObj.title.romaji %></h2>
+                                <h2 class="card-title block truncate text-center"><%= mediaObj.title.english ? mediaObj.title.english : mediaObj.title.romaji %></h2>
                             </div>
                         </div>
                     </a>
