@@ -35,6 +35,7 @@ app.get('/media', (req, res) => {
     else {
         mediaData.getAllMedia()
             .then((data) => {
+                console.log(data)
                 res.render('media', { media: data });
             })
             .catch((err) => {
