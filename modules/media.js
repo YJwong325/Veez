@@ -19,6 +19,8 @@ function fetchMedia(type, filteredMedia) {
                     }
                     siteUrl
                     description
+                    bannerImage
+                    genres
                 }
             }
         }

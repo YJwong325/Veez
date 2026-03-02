@@ -67,6 +67,21 @@
                     </a>
                 <% }) %>
             </div>
+
+            <div class="rounded-box border border-base-primary bg-base-200">
+                <table class="table">
+                    <tbody>
+                        <% media.forEach((mediaObj) => { %>
+                            <tr>
+                                <td class="font-bold"><%= mediaObj.title.english ? mediaObj.title.english : mediaObj.title.romaji %></td>
+                                <td><a class="btn btn-secondary" href="/media?category=<%= mediaObj.category %>"><%= mediaObj.category %></a></td>
+                                <td class="text-primary-content"><%= mediaObj.genres.join(", ") %></td>
+                                <td><a class="btn btn-secondary" href="/media/<%= mediaObj.id %>">details</a></td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </body>
 </html>
