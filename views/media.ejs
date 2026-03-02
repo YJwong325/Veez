@@ -50,7 +50,7 @@
 
             <br><br>
 
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+            <div id="cardGroup" class="hidden grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
                 <% media.forEach((mediaObj) => { %>
                     <a href="/media/<%= mediaObj.id %>">
                         <div class="card bg-base-100 shadow-md transition-transform duration-75 hover:shadow-lg hover:scale-101 hover:bg-primary hover:text-primary-content">
@@ -68,7 +68,7 @@
                 <% }) %>
             </div>
 
-            <div class="rounded-box border border-base-primary bg-base-200">
+            <div id="tableGroup" class="rounded-box border border-base-primary bg-base-200">
                 <table class="table">
                     <thead>
                         <tr>
@@ -91,5 +91,20 @@
                 </table>
             </div>
         </div>
+
+        <script>
+            let tableButton = document.getElementById('table')
+            let cardsButton = document.getElementById('cards')
+            let cards = document.getElementById('cardGroup')
+            let table = document.getElementById('tableGroup')
+
+            function changeView() {
+                table.classList.toggle('hidden')
+                cards.classList.toggle('hidden')
+            }
+
+            tableButton.addEventListener('change', changeView)
+            cardsButton.addEventListener('change', changeView)
+        </script>
     </body>
 </html>
