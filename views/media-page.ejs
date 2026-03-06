@@ -10,6 +10,7 @@
 
     <body>
         <%- include('partials/navbar.ejs') %>
+        <% let title = mediaObj.title?.english || mediaObj.title?.romaji || 'Untitled' %>
 
         <div class="container mx-auto mt-5 mb-10 px-5 md:px-20">
             <div class="hero bg-base-200 min-h-64 rounded-lg overflow-hidden mb-10" <%- mediaObj.bannerImage ? `style="background-image: url(${mediaObj.bannerImage});"` : '' %>>
@@ -17,8 +18,8 @@
 
                 <div class="hero-content text-center w-full <%= mediaObj.bannerImage ? 'text-neutral-content' : 'text-base-content' %>">
                     <div class="max-w-xl">
-                        <h1 class="text-6xl font-bold"><%= mediaObj.title.english ? mediaObj.title.english : mediaObj.title.romaji %></h1>
-                        <p class="pt-6">More information about <%= mediaObj.title.english ? mediaObj.title.english : mediaObj.title.romaji %> below:</p>
+                        <h1 class="text-6xl font-bold"><%= title %></h1>
+                        <p class="pt-6">More information about <%= title %> below:</p>
                     </div>
                 </div>
             </div>
