@@ -102,4 +102,4 @@ function getMediaByCategory(mediaCat) {
     });
 }
 
-module.exports = {initialize, getAllMedia, getMediaById, getMediaByCategory};
+module.exports = {initialize, getAllMedia, getMediaById, getMediaByCategory, fetchMedia};

@@ -4,7 +4,7 @@
   "description": "A Web Application to store my favourite anime, manga, webtoons, and manhwa",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "node --watch server.js",
     "tw:build": "npx @tailwindcss/cli -i ./public/css/tailwind.css -o ./public/css/main.css --watch"
   },
@@ -19,6 +19,7 @@
     "@tailwindcss/cli": "^4.1.18",
     "@tailwindcss/typography": "^0.5.19",
     "daisyui": "^5.5.14",
+    "jest": "^30.3.0",
     "tailwindcss": "^4.1.18"
   }
 }
