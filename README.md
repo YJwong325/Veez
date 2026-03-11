@@ -13,6 +13,9 @@ A web app to showcase my favourite animated works and media.
 - JavaScript
 - Fetch API + GraphQL
 
+### Testing
+- Jest (unit testing + mocking)
+
 ## Disclaimer
 - This project uses the [AniList API](https://docs.anilist.co/) to fetch anime and manga data via GraphQL queries.
 - I do not claim ownership of any of the data used in this project.
